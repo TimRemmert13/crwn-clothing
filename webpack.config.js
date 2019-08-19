@@ -33,8 +33,23 @@ module.exports = {
           ]
       },
       {
-          test: /\.(jpe?g|png|gif|eot|svg|ttf|woff2?|otf)$/,
+          test: /\.(jpe?g|png|gif|eot|ttf|woff2?|otf)$/,
           use: 'file-loader'
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: "babel-loader"
+          },
+          {
+            loader: "react-svg-loader",
+            options: {
+              jsx: true
+            }
+          }
+         
+        ]
       }
     ]
   },
